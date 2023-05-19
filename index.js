@@ -31,6 +31,13 @@ async function run() {
       const result = await toyCollection.find().toArray();
       res.send(result);
     });
+    app.get("/allToys/:text", async (req, res) => {
+      console.log(req.params.text)
+      const result = await toyCollection.find({subcategory: req.params.text}).toArray();
+      res.send(result);
+    });
+
+
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
