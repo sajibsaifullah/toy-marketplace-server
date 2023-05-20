@@ -32,7 +32,7 @@ async function run() {
       res.send(result);
     });
     app.get("/allToys/:text", async (req, res) => {
-      console.log(req.params.text)
+      // console.log(req.params.text)
       const result = await toyCollection.find({subcategory: req.params.text}).toArray();
       res.send(result);
     });
